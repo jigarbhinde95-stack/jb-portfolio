@@ -35,7 +35,7 @@ Each role's `company` and each education entry's `institution` reference an ID i
 {
   "name": "Morgan Stanley",
   "url": "https://www.morganstanley.com/",
-  "logo": "logos/morgan-stanley.avif"
+  "logo": "logos/morgan-stanley.jpg"
 }
 ```
 

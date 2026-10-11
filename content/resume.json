@@ -46,7 +46,7 @@
     "morgan-stanley": {
       "name": "Morgan Stanley",
       "url": "https://www.morganstanley.com/",
-      "logo": "logos/morgan-stanley.avif"
+      "logo": "logos/morgan-stanley.jpg"
     },
     "tiktok": {
       "name": "TikTok",
@@ -71,7 +71,7 @@
     "consumer-reports": {
       "name": "Consumer Reports",
       "url": "https://www.consumerreports.org/homepage/",
-      "logo": "logos/consumer-reports.png"
+      "logo": "logos/consumer-reports.webp"
     },
     "blend": {
       "name": "Blend",
@@ -81,7 +81,7 @@
     "cvs-health": {
       "name": "CVS Health",
       "url": "https://www.cvs.com/",
-      "logo": "logos/cvs-health.png"
+      "logo": "logos/cvs-health.avif"
     },
     "even-and-odd-minds": {
       "name": "Even & Odd Minds",
