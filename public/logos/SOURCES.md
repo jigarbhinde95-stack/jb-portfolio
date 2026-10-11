@@ -4,7 +4,7 @@ These assets were supplied by the user or downloaded from public logo collection
 
 | Local asset | Source |
 | --- | --- |
-| `morgan-stanley.jpg` | User-provided `Archive 2.zip`: `morgan_stanley_logo.jpg` |
+| `morgan-stanley.avif` | User-provided `morgan_stanley_logo.avif`: stacked wordmark matching the requested replacement, retained as uploaded |
 | `blend.jpg` | User-provided `Archive.zip`: `Blend360_logo.jpg` |
 | `brooks-brothers.png` | User-provided `Archive.zip`: `brooks_brothers_logo.png` |
 | `consumer-reports.webp` | User-provided `Archive 2.zip`: `consumer_reports_logo.png` (WebP image, named to match its actual format; original bytes retained) |
