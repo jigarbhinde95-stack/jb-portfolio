@@ -3,14 +3,26 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { loadResume, validateResume, renderPage, inlineText } from './resume.js';
 
-test('editing JSON updates profile, role, organization links, skills, education, and community in generated HTML', () => {
+function sampleResume() {
   const data = structuredClone(loadResume());
+  // Exercise representative content independently of the owner's current roles and education.
+  data.organizations['test-company'] = { name: 'Example Company', url: 'https://example.com/company' };
+  data.organizations['test-university'] = { name: 'Example University', url: 'https://example.com/university' };
+  data.experience = [{ company: 'test-company', role: 'Example Role', period: '2026 – Present', location: 'Remote', current: true, highlights: ['An example achievement.'] }];
+  data.skills = [{ category: 'Example skills', items: ['SQL'] }];
+  data.education = [{ institution: 'test-university', degree: 'Example Degree', period: '2020 – 2022', location: 'Remote' }];
+  data.community = [{ title: 'Example community work', icon: 'heart', text: 'An example activity.' }];
+  return data;
+}
+
+test('editing JSON updates profile, role, organization links, skills, education, and community in generated HTML', () => {
+  const data = sampleResume();
   data.profile.name = 'Updated Name';
   data.profile.email = 'updated@example.com';
   data.profile.headline = 'An edited headline';
   data.experience[0].role = 'Updated role';
-  data.organizations['morgan-stanley'].name = 'Updated company';
-  data.organizations['morgan-stanley'].url = 'https://example.com/company';
+  data.organizations['test-company'].name = 'Updated company';
+  data.organizations['test-company'].url = 'https://example.com/company';
   data.skills[0].items.push('A new skill');
   data.education[0].degree = 'An edited degree';
   data.community[0].text = 'A new volunteering detail';
@@ -23,7 +35,7 @@ test('editing JSON updates profile, role, organization links, skills, education,
 });
 
 test('supports adding and removing roles and does not require a logo for a new company', () => {
-  const data = structuredClone(loadResume());
+  const data = sampleResume();
   data.organizations['new-company'] = { name: 'New Company', url: 'https://example.com/' };
   data.experience = [{ company: 'new-company', role: 'New Role', period: '2026 – Present', location: 'Remote', current: true, highlights: ['A **new result**.'] }];
   validateResume(data);
@@ -34,7 +46,7 @@ test('supports adding and removing roles and does not require a logo for a new c
 });
 
 test('rejects missing content, unknown organization references, and broken asset paths', () => {
-  const data = structuredClone(loadResume());
+  const data = sampleResume();
   const missing = structuredClone(data);
   delete missing.profile.name;
   assert.throws(() => validateResume(missing), /name/);
