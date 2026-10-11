@@ -1,6 +1,6 @@
 # Jigar Bhinde — web résumé
 
-A responsive, accessible résumé for Jigar Bhinde, inspired by the restrained layout of ketulchhaya.com/web-resume. Content and contact links come from the supplied 2026 résumé. The original PDF is included for download.
+A responsive, accessible résumé for Jigar Bhinde.
 
 ## Develop
 
