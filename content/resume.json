@@ -1,0 +1,280 @@
+{
+  "$schema": "./resume.schema.json",
+  "profile": {
+    "name": "Jigar Bhinde",
+    "initials": "JB",
+    "title": "Jigar Bhinde — Résumé",
+    "description": "Jigar Bhinde — Director, Data Analytics. Experience in business intelligence, analytics engineering, audit intelligence, and team leadership.",
+    "eyebrow": "DATA ANALYTICS & BUSINESS INTELLIGENCE",
+    "headline": "Turning complex data into clear decisions.",
+    "location": "San Francisco, CA · 94103",
+    "summary": "Data analytics leader with experience across financial services, technology, hospitality, retail, and healthcare. Currently **Director, Data Analytics at Morgan Stanley**, building audit intelligence dashboards and scalable data pipelines, leading analysts, and translating complex data into actionable insights.",
+    "highlights": [
+      "SQL & Python",
+      "Business intelligence",
+      "Analytics leadership"
+    ],
+    "email": "jigarbhinde95@gmail.com",
+    "phone": "240-665-1640",
+    "phoneLink": "+12406651640",
+    "linkedin": "https://www.linkedin.com/in/jigar-bhinde-1307/",
+    "pdf": "Jigar_Bhinde_Resume_2026.pdf"
+  },
+  "labels": {
+    "resume": "Résumé",
+    "current": "Current",
+    "footer": "Let’s connect.",
+    "backToTop": "Back to top"
+  },
+  "sections": {
+    "experience": {
+      "title": "Experience",
+      "detail": "2018 — PRESENT"
+    },
+    "skills": {
+      "title": "Skills"
+    },
+    "education": {
+      "title": "Education"
+    },
+    "community": {
+      "title": "Beyond the work",
+      "detail": "COMMUNITY & VOLUNTEERING"
+    }
+  },
+  "organizations": {
+    "morgan-stanley": {
+      "name": "Morgan Stanley",
+      "url": "https://www.morganstanley.com/",
+      "logo": "logos/morgan-stanley.svg"
+    },
+    "tiktok": {
+      "name": "TikTok",
+      "url": "https://usds.tiktok.com/",
+      "logo": "logos/tiktok.svg"
+    },
+    "marriott-international": {
+      "name": "Marriott International",
+      "url": "https://www.marriott.com/",
+      "logo": "logos/marriott-international.svg"
+    },
+    "linkedin": {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/",
+      "logo": "logos/linkedin.svg"
+    },
+    "brooks-brothers": {
+      "name": "Brooks Brothers",
+      "url": "https://www.brooksbrothers.com/"
+    },
+    "consumer-reports": {
+      "name": "Consumer Reports",
+      "url": "https://www.consumerreports.org/homepage/"
+    },
+    "blend": {
+      "name": "Blend",
+      "url": "https://www.blend360.com/"
+    },
+    "cvs-health": {
+      "name": "CVS Health",
+      "url": "https://www.cvs.com/"
+    },
+    "even-and-odd-minds": {
+      "name": "Even & Odd Minds",
+      "url": "https://eominds.com/"
+    },
+    "thomson-reuters": {
+      "name": "Thomson Reuters",
+      "url": "https://www.thomsonreuters.com/en.html"
+    },
+    "university-of-maryland": {
+      "name": "University of Maryland",
+      "url": "https://umd.edu/"
+    },
+    "indraprastha-university": {
+      "name": "Indraprastha University",
+      "url": "http://www.ipu.ac.in/"
+    }
+  },
+  "experience": [
+    {
+      "company": "morgan-stanley",
+      "role": "Director, Data Analytics",
+      "period": "November 2024 – Present",
+      "location": "Baltimore, MD, USA",
+      "current": true,
+      "highlights": [
+        "Led a team of **three analysts** in designing audit intelligence dashboards that identify high-risk areas across IT audits by analyzing vulnerabilities and risk domains, reducing manual effort by **30+ hours per month**.",
+        "Built and automated scalable data pipelines using SQL, Python, and Dataiku recipes, improved data quality, and ensured timely delivery across all stages of the Internal Audit lifecycle.",
+        "Supported end-to-end Key Business Services audits by developing a Continuous Monitoring Dashboard in Tableau that delivers real-time insights into operational risks, asset performance, and capacity breaches.",
+        "Built AI agents using Copilot to automatically scrape and ingest competitor vendor outage data into Hive tables, enhancing Vendor Performance, Benchmarking, & Backup (Transference) Tableau dashboards.",
+        "Launched a BI development lifecycle standardization initiative, including requirements gathering, data acquisition, dashboard design, UAT, and QC, resulting in consistency, reduced rework, and faster delivery.",
+        "Designed and executed an A/B test comparing the existing risk model (v1) with an enhanced model (v2) incorporating system criticality, breach likelihood, and audit history, reclassifying **17% of audits** into correct risk tiers and improving audit scoping and resource allocation."
+      ]
+    },
+    {
+      "company": "tiktok",
+      "role": "Lead Data Analyst",
+      "period": "August 2024 – November 2024",
+      "location": "Washington, D.C., USA",
+      "current": false,
+      "highlights": [
+        "Built GET APIs using Python to retrieve data from Vectr via a third-party gateway, integrating **over 100k records monthly** into a Hive table supporting Data Protection and Access Control dashboards.",
+        "Led the design and deployment phases of a MITRE ATT&CK framework dashboard in Aeolus (an internal, Tableau-like tool), capturing attack tactics/phases, techniques, and sub-techniques to support vulnerability and effort tracking for stakeholders from Red and Purple Teams, with row- and column-level security.",
+        "Enabled Purple and Red Teams to boost threat resilience by **over 10%** through improved visibility and control testing within simulated attack scenarios."
+      ]
+    },
+    {
+      "company": "blend",
+      "role": "Senior Business Intelligence Analyst",
+      "period": "January 2021 – August 2024",
+      "location": "Columbia, MD, USA",
+      "current": false,
+      "clients": [
+        {
+          "company": "marriott-international",
+          "industry": "Hospitality",
+          "highlights": [
+            "Engineered Adobe Analytics and Tableau dashboards to monitor Marriott website and Marriott Bonvoy app performance, driving a consistent increase in conversion rates from **4% to 6.9%**.",
+            "Used SQL (Snowflake) to construct purchase funnels and conduct customer email journey analysis, increasing personalization and leading to a **10% improvement in customer engagement** metrics and a **4% increase in revenue**.",
+            "Led a team of five who owned reporting solutions for Mobile Key, Web & App Check-ins, Kiosks, and Digital Upsell, leading to a **15% improvement in guest experience** and a **25% increase in product adoption**."
+          ]
+        },
+        {
+          "company": "linkedin",
+          "industry": "Social media",
+          "highlights": [
+            "Developed an employee hierarchy and sales performance tracking system via a Tableau dashboard with robust row-level security protocols, resulting in a **20% increase in managerial efficiency**.",
+            "Spearheaded the automation of data cleansing, transformation, and integration procedures through an in-house tool, leading to a **30% reduction in manual errors** and a **10% boost in operational efficiency**."
+          ]
+        },
+        {
+          "company": "brooks-brothers",
+          "industry": "Retail",
+          "highlights": [
+            "Developed target demographic analysis for holiday marketing campaigns using SQL and Tableau, contributing to a **5% increase in profitability** and an **11% improvement in customer retention**; generated actionable insights on Revenue, Profit, Total Orders, and Average Order Value (AOV)."
+          ]
+        },
+        {
+          "company": "consumer-reports",
+          "industry": "Retail",
+          "highlights": [
+            "Developed performance comparison dashboards for retail products such as stick and robotic vacuum cleaners and refrigerators, enabling companies to benchmark their products against competitors; published on client websites and in magazines."
+          ]
+        },
+        {
+          "company": "blend",
+          "industry": "Internal initiatives",
+          "highlights": [
+            "Expedited new hire onboarding by developing coursework, standardizing processes, and conducting training on client communication and SQL and Tableau best practices to improve team capabilities.",
+            "Won the **Annual Comradery Award** at Blend in 2023."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "cvs-health",
+      "role": "Data Analyst",
+      "period": "October 2019 – December 2020",
+      "location": "Woonsocket, RI, USA",
+      "current": false,
+      "highlights": [
+        "Developed Patient Behavior Tracking Tableau dashboards pulling data using Teradata SQL, driving adherence to medications and prescribers and adding **300k prescriptions** via SMS, IVR, and Point of Sale (POS) marketing strategies.",
+        "Identified test and control groups and established KPIs, including fill rate, pickup rate, and patient adherence; optimized A/B testing and campaign launch strategy, driving a **40% increase in prescriptions**."
+      ]
+    },
+    {
+      "company": "even-and-odd-minds",
+      "role": "Business Data Analyst",
+      "period": "September 2018 – August 2019",
+      "location": "Philadelphia, PA, USA",
+      "current": false,
+      "highlights": [
+        "Documented business requirements and used SQL and a Tableau dashboard to uncover quarterly trends for online legal copyright infringements and complaints, identifying factors influencing resolved and pending complaints. Recommended strategies to expedite the identification of flagged URLs, **saving 15% time**."
+      ]
+    },
+    {
+      "company": "thomson-reuters",
+      "role": "Business Data Analyst",
+      "period": "May 2018 – August 2018",
+      "location": "Eagan, MN, USA",
+      "current": false,
+      "highlights": [
+        "Identified recurring trends in causes, sub-causes, affected business services, and vendor outages using Tableau and SQL, enhancing proactive decision-making to meet **20% more SLAs**."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Languages & analytics",
+      "items": [
+        "SQL",
+        "Python",
+        "R",
+        "Hive",
+        "Impala"
+      ]
+    },
+    {
+      "category": "Business intelligence & ETL",
+      "items": [
+        "Tableau",
+        "Power BI",
+        "Google Data Studio",
+        "MS Excel",
+        "Trino",
+        "Apache Spark",
+        "Tableau Prep",
+        "Alteryx",
+        "Dataiku",
+        "Adobe Analytics",
+        "Google Analytics",
+        "Teradata",
+        "Microsoft Azure",
+        "Snowflake"
+      ]
+    },
+    {
+      "category": "People management & leadership",
+      "items": [
+        "Mentoring & coaching",
+        "Resource allocation",
+        "Goal setting & performance expectations",
+        "Conflict resolution",
+        "Interviewing candidates",
+        "Stakeholder management"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "university-of-maryland",
+      "degree": "MS in Information Systems",
+      "period": "August 2017 – December 2018",
+      "location": "College Park, MD, USA"
+    },
+    {
+      "institution": "indraprastha-university",
+      "degree": "Electronics and Communications Engineering",
+      "period": "August 2013 – June 2017",
+      "location": "India"
+    }
+  ],
+  "community": [
+    {
+      "title": "Sharing knowledge",
+      "icon": "book",
+      "text": "Delivered a BI Development Lifecycle lecture at the University of Maryland’s Robert H. Smith School of Business for Master’s students in Business Analytics and Information Systems."
+    },
+    {
+      "title": "Giving back",
+      "icon": "heart",
+      "text": "Volunteered at [Baltimore Animal Rescue and Care Shelter (BARCS)](https://www.barcs.org/), supporting animal intake, enrichment, and adoption events."
+    },
+    {
+      "title": "Building community",
+      "icon": "users",
+      "text": "Organized pickleball tournaments at work to promote team building, culture, and cross-team collaboration."
+    }
+  ]
+}

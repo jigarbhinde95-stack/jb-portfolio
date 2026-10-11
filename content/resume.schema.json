@@ -1,0 +1,145 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Web résumé content",
+  "type": "object",
+  "required": ["profile", "labels", "sections", "organizations", "experience", "skills", "education", "community"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {"type": "string"},
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "initials", "title", "description", "eyebrow", "headline", "location", "summary", "highlights", "email", "phone", "phoneLink", "linkedin", "pdf"],
+      "properties": {
+        "name": {"$ref": "#/definitions/text"},
+        "initials": {"$ref": "#/definitions/text"},
+        "title": {"$ref": "#/definitions/text"},
+        "description": {"$ref": "#/definitions/text"},
+        "eyebrow": {"$ref": "#/definitions/text"},
+        "headline": {"$ref": "#/definitions/text"},
+        "location": {"$ref": "#/definitions/text"},
+        "summary": {"$ref": "#/definitions/text"},
+        "highlights": {"$ref": "#/definitions/textList"},
+        "email": {"type": "string", "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"},
+        "phone": {"$ref": "#/definitions/text"},
+        "phoneLink": {"type": "string", "pattern": "^\\+?[0-9]+$"},
+        "linkedin": {"$ref": "#/definitions/webUrl"},
+        "pdf": {"$ref": "#/definitions/asset"}
+      }
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["resume", "current", "footer", "backToTop"],
+      "properties": {
+        "resume": {"$ref": "#/definitions/text"},
+        "current": {"$ref": "#/definitions/text"},
+        "footer": {"$ref": "#/definitions/text"},
+        "backToTop": {"$ref": "#/definitions/text"}
+      }
+    },
+    "sections": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["experience", "skills", "education", "community"],
+      "properties": {
+        "experience": {"$ref": "#/definitions/section"},
+        "skills": {"$ref": "#/definitions/section"},
+        "education": {"$ref": "#/definitions/section"},
+        "community": {"$ref": "#/definitions/section"}
+      }
+    },
+    "organizations": {
+      "type": "object",
+      "propertyNames": {"pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "url"],
+        "properties": {
+          "name": {"$ref": "#/definitions/text"},
+          "url": {"$ref": "#/definitions/webUrl"},
+          "logo": {"$ref": "#/definitions/asset"}
+        }
+      }
+    },
+    "experience": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["company", "role", "period", "location", "current"],
+        "anyOf": [{"required": ["highlights"]}, {"required": ["clients"]}],
+        "properties": {
+          "company": {"$ref": "#/definitions/text"},
+          "role": {"$ref": "#/definitions/text"},
+          "period": {"$ref": "#/definitions/text"},
+          "location": {"$ref": "#/definitions/text"},
+          "current": {"type": "boolean"},
+          "highlights": {"$ref": "#/definitions/textList"},
+          "clients": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["company", "industry", "highlights"],
+              "properties": {
+                "company": {"$ref": "#/definitions/text"},
+                "industry": {"$ref": "#/definitions/text"},
+                "highlights": {"$ref": "#/definitions/textList"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["category", "items"],
+        "properties": {"category": {"$ref": "#/definitions/text"}, "items": {"$ref": "#/definitions/textList"}}
+      }
+    },
+    "education": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["institution", "degree", "period", "location"],
+        "properties": {
+          "institution": {"$ref": "#/definitions/text"},
+          "degree": {"$ref": "#/definitions/text"},
+          "period": {"$ref": "#/definitions/text"},
+          "location": {"$ref": "#/definitions/text"}
+        }
+      }
+    },
+    "community": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "icon", "text"],
+        "properties": {
+          "title": {"$ref": "#/definitions/text"},
+          "icon": {"enum": ["book", "heart", "users"]},
+          "text": {"$ref": "#/definitions/text"}
+        }
+      }
+    }
+  },
+  "definitions": {
+    "text": {"type": "string", "minLength": 1},
+    "textList": {"type": "array", "items": {"$ref": "#/definitions/text"}},
+    "webUrl": {"type": "string", "pattern": "^https?://[^\\s]+$"},
+    "asset": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._/-]*$"},
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title"],
+      "properties": {"title": {"$ref": "#/definitions/text"}, "detail": {"$ref": "#/definitions/text"}}
+    }
+  }
+}

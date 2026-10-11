@@ -103,8 +103,10 @@ h1 { font-size: clamp(2.5rem, 5.5vw, 3.4rem); font-weight: 650; letter-spacing: 
 .entry-header h3 { font-size: 1.075rem; font-weight: 650; letter-spacing: -0.025em; line-height: 1.5; }
 .role-line { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .current-badge { border: 1px solid var(--line); background: var(--accent-subtle); color: var(--accent); font-size: 0.61rem; font-weight: 600; letter-spacing: 0.02em; padding: 3px 8px; border-radius: 4px; }
-.organization { display: inline-flex; align-items: center; gap: 6px; font-size: 0.95rem; margin-top: 4px; text-decoration-color: var(--line); line-height: 1.5; }
+.organization { display: inline-flex; align-items: center; gap: 8px; font-size: 0.95rem; margin-top: 4px; text-decoration-color: var(--line); line-height: 1.5; }
 .organization:hover { text-decoration-color: var(--accent); }
+.company-logo-frame { width: 36px; height: 36px; flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; border: 1px solid #e4e6df; background: #fff; padding: 4px; }
+.company-logo { display: block; width: 100%; height: 100%; object-fit: contain; }
 .entry-meta { text-align: right; color: var(--secondary); font-size: 0.83rem; line-height: 1.8; padding-top: 2px; flex-shrink: 0; }
 .entry-location { display: flex; justify-content: flex-end; align-items: center; gap: 5px; font-size: 0.77rem; color: var(--muted); }
 .entry-location .icon { width: 13px; height: 13px; }
@@ -113,8 +115,10 @@ h1 { font-size: clamp(2.5rem, 5.5vw, 3.4rem); font-weight: 650; letter-spacing: 
 .achievements li + li { margin-top: 9px; }
 .achievements li::marker { font-size: 0.8em; color: var(--muted); }
 .client-group { margin-top: 22px; }
-.client-group h4 { font-size: 0.88rem; font-weight: 600; margin-bottom: 10px; line-height: 1.6; }
-.client-group h4 span { font-size: 0.72rem; font-weight: 400; color: var(--muted); margin-left: 12px; }
+.client-group h4 { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 12px; font-size: 0.88rem; font-weight: 600; margin-bottom: 10px; line-height: 1.6; }
+.client-group .organization { margin-top: 0; font-size: 0.88rem; }
+.client-group h4 .client-industry { font-size: 0.72rem; font-weight: 400; color: var(--muted); }
+.client-group .company-logo-frame { width: 30px; height: 30px; padding: 3px; }
 .skill-row { display: grid; grid-template-columns: 240px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); }
 .skill-row:first-of-type { padding-top: 0; }
 .skill-row:last-child { border: 0; padding-bottom: 0; }
@@ -179,7 +183,7 @@ h1 { font-size: clamp(2.5rem, 5.5vw, 3.4rem); font-weight: 650; letter-spacing: 
   .achievements li { padding-left: 2px; }
   .achievements li + li { margin-top: 12px; }
   .job + .job { margin-top: 34px; }
-  .client-group h4 span { display: block; margin-left: 0; }
+  .client-group h4 .client-industry { flex-basis: 100%; }
   .skill-row { grid-template-columns: 1fr; gap: 11px; padding: 18px 0; }
   .skill-tags li { font-size: 0.74rem; }
   .community-list li { gap: 13px; }

@@ -1,21 +1,47 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { readFileSync } from 'node:fs';
+
+const resume = JSON.parse(readFileSync(new URL('../content/resume.json', import.meta.url), 'utf8'));
+
+test('serves all company logos from local assets inside the correct company links', async ({ page }) => {
+  const remoteRequests = [];
+  page.on('request', request => {
+    if (!request.url().startsWith('http://127.0.0.1:4173/')) remoteRequests.push(request.url());
+  });
+  await page.goto('/');
+  const companies = [...resume.experience.map(job => job.company), ...resume.experience.flatMap(job => (job.clients || []).map(client => client.company))];
+  for (const id of companies) {
+    const company = resume.organizations[id];
+    const link = page.locator('.organization').filter({ hasText: company.name }).first();
+    await expect(link).toHaveAttribute('href', company.url);
+    const logo = link.locator('img');
+    if (!company.logo) {
+      await expect(logo).toHaveCount(0);
+      continue;
+    }
+    await logo.scrollIntoViewIfNeeded();
+    await expect(logo).toHaveAttribute('src', `./${company.logo}`);
+    await expect.poll(() => logo.evaluate(image => image.complete && image.naturalWidth > 0)).toBeTruthy();
+  }
+  expect(remoteRequests).toEqual([]);
+});
 
 test('renders the complete resume, contact details, and downloadable source PDF', async ({ page, request }) => {
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/');
-  await expect(page).toHaveTitle('Jigar Bhinde — Résumé');
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Jigar Bhinde.');
-  await expect(page.locator('.job')).toHaveCount(6);
-  await expect(page.locator('.education-entry')).toHaveCount(2);
-  await expect(page.locator('.community-list > li')).toHaveCount(3);
-  for (const organization of ['Morgan Stanley', 'TikTok', 'Blend', 'CVS Health', 'Even & Odd Minds', 'Thomson Reuters']) {
+  await expect(page).toHaveTitle(resume.profile.title);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(`${resume.profile.name}.`);
+  await expect(page.locator('.job')).toHaveCount(resume.experience.length);
+  await expect(page.locator('.education-entry')).toHaveCount(resume.education.length);
+  await expect(page.locator('.community-list > li')).toHaveCount(resume.community.length);
+  for (const organization of resume.experience.map(job => resume.organizations[job.company].name)) {
     await expect(page.locator('.organization').filter({ hasText: organization }).first()).toBeVisible();
   }
-  await expect(page.getByRole('link', { name: 'Email Jigar Bhinde', exact: true })).toHaveAttribute('href', 'mailto:jigarbhinde95@gmail.com');
-  await expect(page.getByRole('link', { name: /Call Jigar/ })).toHaveAttribute('href', 'tel:+12406651640');
-  await expect(page.getByRole('link', { name: /Jigar Bhinde on LinkedIn/ })).toHaveAttribute('href', 'https://www.linkedin.com/in/jigar-bhinde-1307/');
+  await expect(page.getByRole('link', { name: `Email ${resume.profile.name}`, exact: true })).toHaveAttribute('href', `mailto:${resume.profile.email}`);
+  await expect(page.getByRole('link', { name: `Call ${resume.profile.name} at ${resume.profile.phone}` })).toHaveAttribute('href', `tel:${resume.profile.phoneLink}`);
+  await expect(page.getByRole('link', { name: `${resume.profile.name} on LinkedIn (opens in a new tab)` })).toHaveAttribute('href', resume.profile.linkedin);
   const pdfLink = page.getByRole('link', { name: 'PDF', exact: true });
   const response = await request.get(await pdfLink.getAttribute('href'));
   expect(response.ok()).toBeTruthy();
@@ -23,7 +49,7 @@ test('renders the complete resume, contact details, and downloadable source PDF'
   expect((await response.body()).subarray(0, 5).toString()).toBe('%PDF-');
   const downloadPromise = page.waitForEvent('download');
   await pdfLink.click();
-  expect((await downloadPromise).suggestedFilename()).toBe('Jigar_Bhinde_Resume_2026.pdf');
+  expect((await downloadPromise).suggestedFilename()).toBe(resume.profile.pdf.split('/').at(-1));
   expect(errors).toEqual([]);
 });
 
@@ -69,8 +95,8 @@ test('all sections are reachable by keyboard and content fits narrow screens at 
     }
   }
   await page.locator('#education').scrollIntoViewIfNeeded();
-  await expect(page.getByRole('heading', { name: 'MS in Information Systems' })).toBeVisible();
-  await page.getByRole('link', { name: 'Back to top', exact: true }).click();
+  if (resume.education.length) await expect(page.getByRole('heading', { name: resume.education[0].degree, exact: true })).toBeVisible();
+  await page.getByRole('link', { name: resume.labels.backToTop, exact: true }).click();
   await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
 });
 
@@ -78,10 +104,10 @@ test('renders resume content without JavaScript and prints without the toolbar',
   const context = await browser.newContext({ javaScriptEnabled: false, colorScheme: 'light' });
   const page = await context.newPage();
   await page.goto('http://127.0.0.1:4173');
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Jigar Bhinde.');
-  await expect(page.locator('.job')).toHaveCount(6);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(`${resume.profile.name}.`);
+  await expect(page.locator('.job')).toHaveCount(resume.experience.length);
   await page.emulateMedia({ media: 'print' });
   await expect(page.locator('.toolbar')).toBeHidden();
-  await expect(page.getByRole('heading', { name: 'Experience', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: resume.sections.experience.title, exact: true })).toBeVisible();
   await context.close();
 });
