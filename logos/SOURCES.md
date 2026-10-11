@@ -1,6 +1,6 @@
 # Bundled company logos
 
-These assets were supplied by the user or downloaded from public logo collections and saved locally. The page never requests a third-party logo service at runtime. Original asset files are retained without changes; their display uses a centered circular cover crop in CSS.
+These assets were supplied by the user or downloaded from public logo collections and saved locally. The page never requests a third-party logo service at runtime. Original asset files are retained without changes; CSS centers and scales each complete image proportionally inside the same padded 80 × 48 frame without cropping.
 
 | Local asset | Source |
 | --- | --- |
