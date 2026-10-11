@@ -39,7 +39,7 @@ Each role's `company` and each education entry's `institution` reference an ID i
 }
 ```
 
-Logo paths are relative to `public/`. Add an SVG, PNG, JPEG, WebP, or AVIF to `public/logos/`, then set the company's `logo` to the matching `logos/your-file.ext` path. Logos display in a fixed circular frame with centered `object-fit: cover`, regardless of their original dimensions. A logo is optional; omitting the field keeps the company name and website link. Asset provenance is recorded in [public/logos/SOURCES.md](public/logos/SOURCES.md).
+Logo paths are relative to `public/`. Add an SVG, PNG, JPEG, WebP, or AVIF to `public/logos/`, then set the company's `logo` to the matching `logos/your-file.ext` path. Every employer and client logo uses the same padded 80 × 48 frame with rounded corners and centered `object-fit: contain`. Images keep their original proportions and remain fully visible without cropping. A logo is optional; omitting the field keeps the company name and website link. Asset provenance is recorded in [public/logos/SOURCES.md](public/logos/SOURCES.md).
 
 Summary, achievement, and community text support `**bold text**` and `[link text](https://example.com)`. Other text is displayed literally. Dates are editable display strings, and array order determines the order on the page. Use double quotes and avoid trailing commas; JSON does not support comments.
 
