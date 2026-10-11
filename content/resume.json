@@ -46,7 +46,7 @@
     "morgan-stanley": {
       "name": "Morgan Stanley",
       "url": "https://www.morganstanley.com/",
-      "logo": "logos/morgan-stanley.svg"
+      "logo": "logos/morgan-stanley.avif"
     },
     "tiktok": {
       "name": "TikTok",
@@ -65,27 +65,33 @@
     },
     "brooks-brothers": {
       "name": "Brooks Brothers",
-      "url": "https://www.brooksbrothers.com/"
+      "url": "https://www.brooksbrothers.com/",
+      "logo": "logos/brooks-brothers.png"
     },
     "consumer-reports": {
       "name": "Consumer Reports",
-      "url": "https://www.consumerreports.org/homepage/"
+      "url": "https://www.consumerreports.org/homepage/",
+      "logo": "logos/consumer-reports.png"
     },
     "blend": {
       "name": "Blend",
-      "url": "https://www.blend360.com/"
+      "url": "https://www.blend360.com/",
+      "logo": "logos/blend.jpg"
     },
     "cvs-health": {
       "name": "CVS Health",
-      "url": "https://www.cvs.com/"
+      "url": "https://www.cvs.com/",
+      "logo": "logos/cvs-health.png"
     },
     "even-and-odd-minds": {
       "name": "Even & Odd Minds",
-      "url": "https://eominds.com/"
+      "url": "https://eominds.com/",
+      "logo": "logos/even-and-odd-minds.jpeg"
     },
     "thomson-reuters": {
       "name": "Thomson Reuters",
-      "url": "https://www.thomsonreuters.com/en.html"
+      "url": "https://www.thomsonreuters.com/en.html",
+      "logo": "logos/thomson-reuters.png"
     },
     "university-of-maryland": {
       "name": "University of Maryland",
